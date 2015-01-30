@@ -76,8 +76,8 @@ module URI
     # == Description
     #
     # At first, tries to create a new URI::Generic instance using
-    # URI::Generic::build. But, if exception URI::InvalidComponentError is raised,
-    # then it URI::Escape.escape all URI components and tries again.
+    # URI::Generic::build. But, if the URI::InvalidComponentError exception is raised,
+    # then it will URI::Escape.escape all URI components and try again.
     #
     #
     def self.build2(args)
