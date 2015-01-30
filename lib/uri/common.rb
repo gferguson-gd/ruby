@@ -868,10 +868,10 @@ module URI
   HTML5ASCIIINCOMPAT = [Encoding::UTF_7, Encoding::UTF_16BE, Encoding::UTF_16LE,
     Encoding::UTF_32BE, Encoding::UTF_32LE] # :nodoc:
 
-  # Encode given +str+ to URL-encoded form data.
+  # Encode the given +str+ to URL-encoded form data.
   #
-  # This method doesn't convert *, -, ., 0-9, A-Z, _, a-z, but does convert SP
-  # (ASCII space) to + and converts others to %XX.
+  # This method doesn't convert +*+, +-+, +.+, +0-9+, +A-Z+, +_+, +a-z+, but does convert +SP+
+  # (ASCII space) to +++ and converts others to +%XX+.
   #
   # If +enc+ is given, convert +str+ to the encoding before percent encoding.
   #
@@ -894,7 +894,7 @@ module URI
 
   # Decode given +str+ of URL-encoded form data.
   #
-  # This decodes + to SP.
+  # This decodes +++ to +SP+.
   #
   # See URI.encode_www_form_component, URI.decode_www_form
   def self.decode_www_form_component(str, enc=Encoding::UTF_8)
@@ -917,7 +917,7 @@ module URI
   # This method doesn't handle files.  When you send a file, use
   # multipart/form-data.
   #
-  # This refers http://url.spec.whatwg.org/#concept-urlencoded-serializer
+  # This refers to http://url.spec.whatwg.org/#concept-urlencoded-serializer
   #
   #    URI.encode_www_form([["q", "ruby"], ["lang", "en"]])
   #    #=> "q=ruby&lang=en"
@@ -949,20 +949,20 @@ module URI
     end.join('&')
   end
 
-  # Decode URL-encoded form data from given +str+.
+  # Decode URL-encoded form data from the given +str+.
   #
   # This decodes application/x-www-form-urlencoded data
   # and returns array of key-value array.
   #
-  # This refers http://url.spec.whatwg.org/#concept-urlencoded-parser ,
-  # so this supports only &-separator, don't support ;-separator.
+  # This refers to http://url.spec.whatwg.org/#concept-urlencoded-parser ,
+  # so this supports only &-separator, and doesn't support the ;-separator.
   #
-  # ary = URI.decode_www_form("a=1&a=2&b=3")
-  # p ary                  #=> [['a', '1'], ['a', '2'], ['b', '3']]
-  # p ary.assoc('a').last  #=> '1'
-  # p ary.assoc('b').last  #=> '3'
-  # p ary.rassoc('a').last #=> '2'
-  # p Hash[ary]            # => {"a"=>"2", "b"=>"3"}
+  #    ary = URI.decode_www_form("a=1&a=2&b=3")
+  #    p ary                  #=> [['a', '1'], ['a', '2'], ['b', '3']]
+  #    p ary.assoc('a').last  #=> '1'
+  #    p ary.assoc('b').last  #=> '3'
+  #    p ary.rassoc('a').last #=> '2'
+  #    p Hash[ary]            # => {"a"=>"2", "b"=>"3"}
   #
   # See URI.decode_www_form_component, URI.encode_www_form
   def self.decode_www_form(str, enc=Encoding::UTF_8, separator: '&', use__charset_: false, isindex: false)
