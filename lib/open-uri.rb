@@ -43,7 +43,7 @@ end
 #
 # == Example
 #
-# It is possible to open an http, https or ftp URL as though it were a file:
+# It is possible to open an HTTP, HTTPS or FTP URL as though it were a file:
 #
 #   open("http://www.ruby-lang.org/") {|f|
 #     f.each_line {|line| p line}
@@ -70,7 +70,7 @@ end
 #     # ...
 #   }
 #
-# The environment variables such as http_proxy, https_proxy and ftp_proxy
+# The environment variables such as HTTP_PROXY, HTTPS_PROXY and FTP_PROXY
 # are in effect by default. Here we disable proxy:
 #
 #   open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
