@@ -14,7 +14,7 @@ module URI
   #
   # FTP URI syntax is defined by RFC1738 section 3.2.
   #
-  # This class will be redesigned because of difference of implementations;
+  # This class will be redesigned because of a difference of implementations;
   # the structure of its path. draft-hoffman-ftp-uri-04 is a draft but it
   # is a good summary about the de facto spec.
   # http://tools.ietf.org/html/draft-hoffman-ftp-uri-04
@@ -77,7 +77,8 @@ module URI
     # with keys formed by preceding the component names with a colon.
     #
     # If an Array is used, the components must be passed in the order
-    # [userinfo, host, port, path, typecode]
+    #
+    #    [userinfo, host, port, path, typecode]
     #
     # If the path supplied is absolute, it will be escaped in order to
     # make it absolute in the URI. Examples:
@@ -185,7 +186,7 @@ module URI
     # public setter for the typecode +v+.
     # (with validation)
     #
-    # see also URI::FTP.check_typecode
+    # See also URI::FTP.check_typecode
     #
     # == Usage
     #
@@ -221,10 +222,10 @@ module URI
     #     ftp://ftp.example.com/pub/ruby
     #
     # The above URI indicates that the client should connect to
-    # ftp.example.com then cd pub/ruby from the initial login directory.
+    # ftp.example.com then +cd pub/ruby+ from the initial login directory.
     #
-    # If you want to cd to an absolute directory, you must include an
-    # escaped / (%2F) in the path. Example:
+    # If you want to +cd+ to an absolute directory, you must include an
+    # escaped +/+ (+%2F+) in the path. Example:
     #
     #     ftp://ftp.example.com/%2Fpub/ruby
     #
