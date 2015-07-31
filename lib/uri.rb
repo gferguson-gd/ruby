@@ -6,7 +6,7 @@
 # * Uniform handling of handling URIs
 # * Flexibility to introduce custom URI schemes
 # * Flexibility to have an alternate URI::Parser (or just different patterns
-#   and regexp's)
+#   and regexps)
 #
 # == Basic example
 #
